@@ -1,0 +1,30 @@
+.dice {
+    width: 5rem;
+    height: 5rem;
+    display: inline-block;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#numbers .dice {
+    padding-top: 1rem;
+    font-size: 2.2rem;
+    border: 1px dotted #666;
+    margin: 0 0.5rem;
+}
+#pitch .dice {
+    padding-top: 1.8rem;
+    background-color: var(--bs-green);
+    color: white;
+}
+#extra .dice {
+    padding-top: 0.7rem;
+    font-weight: normal;
+    background-color: var(--bs-red);
+    color: white;
+}
+#safe .dice {
+    padding-top: 1.8rem;
+    background-color: var(--bs-black);
+    color: white;
+}
