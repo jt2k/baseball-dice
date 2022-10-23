@@ -40,12 +40,12 @@ document.getElementById('roll-pitch').addEventListener('click', (e) => {
     const dice = document.querySelector('#pitch .dice');
     switch (choice) {
         case '⚾︎':
-            dice.style.fontSize = '2.9rem';
-            dice.style.paddingTop = '0.8rem';
+            dice.style.fontSize = '4rem';
+            dice.style.paddingTop = '1.7rem';
             break;
         case 'foul ball':
             dice.style.fontSize = null;
-            dice.style.paddingTop = '1.3rem';
+            dice.style.paddingTop = '2.2rem';
             break;
         default:
             dice.style.fontSize = null;
@@ -66,11 +66,11 @@ document.getElementById('roll-extra').addEventListener('click', (e) => {
     const dice = document.querySelector('#extra .dice');
     switch (choice) {
         case 'balk':
-            dice.style.paddingTop = '1.8rem';
+            dice.style.paddingTop = '2.8rem';
             break;
         case 'wild pitch':
         case 'double play':
-            dice.style.paddingTop = '1.3rem';
+            dice.style.paddingTop = '2.2rem';
             break;
         default:
             dice.style.paddingTop = null;
