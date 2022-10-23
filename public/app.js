@@ -6,14 +6,26 @@ function rollChoice(choices) {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function updateDice(element, value) {
+    element.innerHTML = '&nbsp;';
+    element.classList.add('shake', 'shake-constant');
+    setTimeout(function() {
+        element.innerHTML = value;
+        element.classList.remove('shake', 'shake-constant');
+    }, 300);
+}
+
 document.getElementById('roll-numbers').addEventListener('click', (e) => {
     document.querySelectorAll('#numbers .dice').forEach(dice => {
-        dice.textContent = roll(6);
+        updateDice(dice, roll(6));
     });
 });
 
 document.getElementById('roll-safe').addEventListener('click', (e) => {
-    document.querySelector('#safe .dice').textContent = rollChoice(['safe', 'out']);
+    updateDice(
+        document.querySelector('#safe .dice'),
+        rollChoice(['safe', 'out'])
+    );
 });
 
 document.getElementById('roll-pitch').addEventListener('click', (e) => {
@@ -25,21 +37,21 @@ document.getElementById('roll-pitch').addEventListener('click', (e) => {
         '⚾︎',
         '⚾︎'
     ]);
-    const diceElement = document.querySelector('#pitch .dice');
-    diceElement.textContent = choice;
+    const dice = document.querySelector('#pitch .dice');
     switch (choice) {
         case '⚾︎':
-            diceElement.style.fontSize = '2.9rem';
-            diceElement.style.paddingTop = '0.8rem';
+            dice.style.fontSize = '4rem';
+            dice.style.paddingTop = '1.7rem';
             break;
         case 'foul ball':
-            diceElement.style.fontSize = null;
-            diceElement.style.paddingTop = '1.3rem';
+            dice.style.fontSize = null;
+            dice.style.paddingTop = '2.2rem';
             break;
         default:
-            diceElement.style.fontSize = null;
-            diceElement.style.paddingTop = null;
+            dice.style.fontSize = null;
+            dice.style.paddingTop = null;
     }
+    updateDice(dice, choice);
 });
 
 document.getElementById('roll-extra').addEventListener('click', (e) => {
@@ -51,17 +63,17 @@ document.getElementById('roll-extra').addEventListener('click', (e) => {
         'attempt<br />to<br />sacrifice',
         'attempt<br />to<br />steal'
     ]);
-    const diceElement = document.querySelector('#extra .dice');
-    diceElement.innerHTML = choice;
+    const dice = document.querySelector('#extra .dice');
     switch (choice) {
         case 'balk':
-            diceElement.style.paddingTop = '1.8rem';
+            dice.style.paddingTop = '2.8rem';
             break;
         case 'wild pitch':
         case 'double play':
-            diceElement.style.paddingTop = '1.3rem';
+            dice.style.paddingTop = '2.2rem';
             break;
         default:
-            diceElement.style.paddingTop = null;
+            dice.style.paddingTop = null;
     }
+    updateDice(dice, choice);
 });
